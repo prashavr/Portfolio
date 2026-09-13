@@ -1,0 +1,34 @@
+{
+  "name": "Prashav Rimal",
+  "role": "Software Developer",
+  "specialization": "Full-Stack Python & Frontend Development",
+  "location": "Kumaltar, Lalitpur, Nepal",
+  "email": "prashavrimal3@gmail.com",
+  "github": "https://github.com/prashavr",
+  "linkedin": null,
+  "siteUrl": "https://prashavrimal.com.np",
+  "summary": "I’m an IT Engineering graduate with a foundation in frontend development and completed training in full-stack Python. Through academic projects and continued learning, I’m developing the skills to build practical software and contribute to a professional engineering team.",
+  "about": "My focus is software development across the frontend and Python stack. I’m interested in turning practical problems into useful applications, while continuing to improve how I structure, build, and maintain software.",
+  "skills": [
+    { "name": "Programming & core", "items": ["Python", "HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript"] },
+    { "name": "Frontend development", "items": ["React", "React Hooks", "Context API", "Custom Hooks", "Vue.js", "Next.js"] },
+    { "name": "Styling & responsive design", "items": ["Tailwind CSS", "Bootstrap", "Responsive Design", "Mobile-First Development"] },
+    { "name": "Version control & collaboration", "items": ["Git", "GitHub", "GitLab", "Pull Requests", "Code Reviews"] },
+    { "name": "Deployment & hosting", "items": ["Vercel", "Firebase Hosting", "Render", "Cloudflare Pages"] },
+    { "name": "Full-stack development", "items": ["Full-Stack Python Development"] }
+  ],
+  "projects": [
+    { "name": "Hamro Mart", "type": "Web-based application", "context": "Second-year college project", "description": "A web-based application developed as a second-year college project.", "technologies": [], "details": [], "githubUrl": null, "demoUrl": null, "image": null, "imageAlt": null },
+    { "name": "Employee Management System", "type": "Desktop application", "context": "First-year college project", "description": "A Java desktop application developed as a first-year college project.", "technologies": ["Java"], "details": [], "githubUrl": null, "demoUrl": null, "image": null, "imageAlt": null }
+  ],
+  "education": [
+    { "institution": "Everest Engineering College", "qualification": "Bachelor’s in IT Engineering", "period": "2022–2026", "status": "Completed" },
+    { "institution": "GIHE", "qualification": "A-Levels — Science", "period": "2020–2022", "status": null }
+  ],
+  "training": [
+    { "provider": "Mind Risers", "name": "Full-Stack Python Development", "duration": "3 months", "description": "Completed a three-month Full-Stack Python Development course at Mind Risers." }
+  ],
+  "experience": [],
+  "interests": ["Game Development", "Artificial Intelligence & Machine Learning", "Cyber Security & Ethical Hacking", "Networking", "Data Visualization"],
+  "resume": { "path": null, "filename": "Prashav-Rimal-Resume.pdf", "unavailableMessage": "Updated resume coming soon." }
+}
