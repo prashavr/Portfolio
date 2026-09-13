@@ -1,1 +1,37 @@
-const canvas=document.getElementById('starCanvas');const ctx=canvas.getContext('2d');let stars=[];const numStars=130;function resize(){canvas.width=innerWidth;canvas.height=innerHeight}function createStars(){stars=Array.from({length:numStars},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.4+.3,s:Math.random()*.45+.08,a:Math.random()*.65+.2}))}function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);for(const star of stars){ctx.globalAlpha=star.a;ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(star.x,star.y,star.r,0,Math.PI*2);ctx.fill();star.x+=star.s;if(star.x>canvas.width)star.x=-2}}function animate(){draw();requestAnimationFrame(animate)}addEventListener('resize',()=>{resize();createStars()});resize();createStars();animate();
+// All content and links work without JS; enhance mobile navigation and the year.
+(() => {
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('#primary-navigation');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  if (header && toggle && navigation) {
+    const setOpen = (open, restoreFocus = false) => {
+      navigation.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.querySelector('.menu-label').textContent = open ? 'Close' : 'Menu';
+      if (restoreFocus) toggle.focus();
+    };
+    toggle.hidden = false;
+    header.classList.add('navigation-enhanced');
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    navigation.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link || !mobile.matches) return;
+      setOpen(false);
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setOpen(false, true);
+    });
+    document.addEventListener('click', event => {
+      if (!header.contains(event.target)) setOpen(false);
+    });
+    if (mobile.addEventListener) mobile.addEventListener('change', () => setOpen(false));
+  }
+  const year = document.querySelector('[data-current-year]');
+  if (year) year.textContent = String(new Date().getFullYear());
+})();
