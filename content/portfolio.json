@@ -30,5 +30,5 @@
   ],
   "experience": [],
   "interests": ["Game Development", "Artificial Intelligence & Machine Learning", "Cyber Security & Ethical Hacking", "Networking", "Data Visualization"],
-  "resume": { "path": null, "filename": "Prashav-Rimal-Resume.pdf", "unavailableMessage": "Updated resume coming soon." }
+  "resume": { "path": "assets/Prashav-Rimal-Resume.pdf", "filename": "Prashav-Rimal-Resume.pdf", "unavailableMessage": "Updated resume coming soon." }
 }

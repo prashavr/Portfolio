@@ -34,15 +34,17 @@ Add an object to `projects`, following the existing entries. The layout grows au
 
 Hamro Mart currently has no confirmed stack, features, screenshots, or repository/demo links. Java is the only confirmed technology for Employee Management System. No planned project is presented as completed work.
 
-## Enable the resume download
+## Update the resume download
 
-The old resume is not published or linked. The download action is marked unavailable and has an explanatory message.
+The public resume is `assets/Prashav-Rimal-Resume.pdf`. It was revised from the supplied resume using the confirmed graduation, career focus, and Mind Risers training details. Both navigation and hero download actions link to this PDF.
 
-1. Add an approved, updated PDF at `assets/Prashav-Rimal-Resume.pdf`.
+1. Replace the PDF at `assets/Prashav-Rimal-Resume.pdf` with the next approved version.
 2. Set `resume.path` to `assets/Prashav-Rimal-Resume.pdf`.
 3. Run `node scripts/build.mjs` and commit the PDF and updated files.
 
 The button becomes a real download link automatically. The builder refuses missing files, paths outside this repository, and files without a PDF signature. To withdraw the download, set the path to `null`, rebuild, and remove the PDF from the published branch. Disabling a link alone does not make a previously published PDF private; Git history may retain it.
+
+To regenerate the current PDF from portfolio content, use `python3 scripts/build-resume.py`. This optional authoring script requires ReportLab and the DejaVu Serif regular/bold fonts. Set `RESUME_FONT_DIR` if the font directory differs from `/usr/share/fonts/truetype/dejavu`. The phone number comes from the uploaded source resume. Review the rendered PDF after regeneration. These authoring dependencies are not loaded by the website or required by GitHub Pages.
 
 ## Optional sections
 
@@ -66,7 +68,7 @@ System fonts, semantic landmarks, one primary heading, visible focus outlines, a
 ## Content needed for a stronger job-application launch
 
 - For each project: actual features, your contribution, confirmed stack, repository/demo URLs, and screenshots if available.
-- An approved, updated resume PDF.
+- Keep the downloadable resume aligned with portfolio updates.
 - Optional: a completed Python/full-stack project and a real LinkedIn URL.
 
 Keep claims aligned with work you can explain and demonstrate in an interview.

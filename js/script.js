@@ -18,10 +18,13 @@
       const link = event.target.closest('a');
       if (!link || !mobile.matches) return;
       setOpen(false);
-      const target = document.querySelector(link.getAttribute('href'));
+      const href = link.getAttribute('href');
+      const target = href?.startsWith('#') ? document.querySelector(href) : null;
       if (target) {
         if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
         target.focus({ preventScroll: true });
+      } else {
+        toggle.focus({ preventScroll: true });
       }
     });
     document.addEventListener('keydown', event => {

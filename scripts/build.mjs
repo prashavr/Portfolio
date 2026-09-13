@@ -31,12 +31,14 @@ const metaDescription = `Portfolio of ${data.name}, a software developer based i
 const year = new Date().getFullYear();
 const sectionHeading = (title, index, id) => `<div class="section-heading"><span class="section-index" aria-hidden="true">${index}</span><h2 id="${id}-heading">${title}</h2></div>`;
 let resumeControl = `<button class="button button-resume" type="button" aria-disabled="true" aria-describedby="resume-status">${icon('down')} Download Resume</button>`;
+let resumeNavigation = `<a class="nav-resume" href="#resume">Resume ${icon('down')}</a>`;
 if (data.resume.path) {
   const resumePath = await checkedAsset(data.resume.path);
   if (!resumePath.toLowerCase().endsWith('.pdf')) throw new Error('The public resume must be a PDF.');
   const bytes = await readFile(path.join(root, data.resume.path));
   if (bytes.subarray(0, 5).toString() !== '%PDF-') throw new Error('The resume file is not a valid PDF.');
   resumeControl = `<a class="button button-secondary" href="${resumePath}" download="${escape(data.resume.filename)}">${icon('down')} Download Resume</a>`;
+  resumeNavigation = `<a class="nav-resume" href="${resumePath}" download="${escape(data.resume.filename)}" aria-label="Download ${escape(data.name)}'s resume (PDF)">Resume ${icon('down')}</a>`;
 }
 const projectCards = await Promise.all(data.projects.map(async (project, index) => {
   const image = project.image ? `<img class="project-image" src="${await checkedAsset(project.image)}" alt="${escape(project.imageAlt || project.name)}" width="800" height="500" loading="lazy" decoding="async">` : '';
@@ -83,7 +85,7 @@ const html = `<!DOCTYPE html>
     <a class="brand" href="#top" aria-label="${escape(data.name)}, back to top"><span class="brand-mark" aria-hidden="true">pr.</span><span>${escape(data.name)}</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden><span class="menu-label">Menu</span><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
     <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#training">Training</a>${data.experience.length ? '<a href="#experience">Experience</a>' : ''}<a href="#contact">Contact</a><a class="nav-resume" href="#resume">Resume ${icon('down')}</a>
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#training">Training</a>${data.experience.length ? '<a href="#experience">Experience</a>' : ''}<a href="#contact">Contact</a>${resumeNavigation}
     </nav>
   </div></header>
   <main class="container" id="main" tabindex="-1">
